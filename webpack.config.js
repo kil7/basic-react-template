@@ -7,10 +7,12 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPl
 // https://webpack.js.org/configuration/configuration-types/
 module.exports = function (env, argv) {
   return {
-    target: "web",
+    /* browserlist from package.json - important to change based on what
+     * env you want to target (e.g. web / node or es5 etc.) */
+    target: ["browserslist"],
     mode: env.production ? "production" : "development",
     entry: {
-      index: "./src/index.tsx",
+      index: "./src/main.tsx",
     },
     devtool: env.production ? undefined : "inline-source-map",
     output: {
@@ -42,14 +44,14 @@ module.exports = function (env, argv) {
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
-          use: { 
+          use: {
             loader: "babel-loader",
             options: {
               cacheDirectory: true,
               cacheCompression: false,
-              envName: env.production ? "production" : "development"
-            }
-          }
+              envName: env.production ? "production" : "development",
+            },
+          },
         },
         {
           test: /\.(s*)css$/i,
@@ -71,7 +73,7 @@ module.exports = function (env, argv) {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./src/index.html"
+        template: "./src/index.html",
         //title: "TITLE HERE"
       }),
       // new DotenvWebpackPlugin()
