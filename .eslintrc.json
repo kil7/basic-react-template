@@ -4,8 +4,8 @@
     "es2021": true
   },
   "extends": [
-    "airbnb-base", // airbnb for react support
-    "airbnb-typescript/base", //airbnb-typescript for react support
+    "airbnb", // airbnb for react support
+    "airbnb-typescript", //airbnb-typescript for react support
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -21,6 +21,6 @@
     "project": "**/tsconfig.json"
   },
   "rules": {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
