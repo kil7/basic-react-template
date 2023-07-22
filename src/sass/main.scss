@@ -1,0 +1,9 @@
+/* Globals and variables*/
+@import "variables";
+@import "mixins";
+@import "global";
+
+/* Components */
+
+/* So we don't need to play around wih default element styles */
+@include reset-css;
